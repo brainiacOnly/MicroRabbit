@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TransferViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form action="/home/transfer" method="post">
+    <label for="To"> To Account:</label>
+    <input type="text" name="to"/>
+    <label for="from"> From Account:</label>
+    <input type="text" name="from"/>
+    <label for="amount"> Transfer Amount:</label>
+    <input type="text" name="amount"/>
+    <input type="submit" name="Transfer" />
+</form>
+
+@foreach (var log in Model)
+{
+    <p>
+        <span>From Account: @log.From</span>
+        <span>To Account: @log.To</span>
+        <span>Transfer Amount: @log.Amount</span>
+    </p>
+}
+
